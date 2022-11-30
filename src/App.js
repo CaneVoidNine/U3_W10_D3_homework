@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route element={<CarouselList />} path="/" />
           <Route element={<TvShows />} path="/tvshows" />
-          <Route element={<MovieDetails />} path="/details/:movieId" />
+          <Route element={<MovieDetails />} path="/details/:id" />
         </Routes>
         <MyFooter />
       </div>

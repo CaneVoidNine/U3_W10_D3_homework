@@ -1,32 +1,34 @@
-import { Container, Col, Row } from "react-bootstrap";
-import { useNavigate, useParams, useState, useEffect } from "react-router-dom";
-import item from "../media/media0.jpg";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const MovieDetails = (props) => {
-  //const [movie, setMovie] = useState(null);
+const MovieDetails = () => {
+  const params = useParams();
 
-  //const navigate = useNavigate();
+  const [MovieDetails, setMovieDetails] = useState({});
 
-  // useEffect(() => {
-  // let detailsToShow = items.find((m) => m.id.toString() === params.movieId);
-  // console.log("detailsToShow", detailsToShow);
-  //setMovie(detailsToShow);
-  //  });
-  //};
+  async function fetchMovies() {
+    const response = await fetch(
+      `http://www.omdbapi.com/?apikey=2ba0b717&i=${params.id}`
+    );
+    const data = await response.json();
+    console.log(data);
+    setMovieDetails(data);
+  }
+  console.log(params);
 
+  useEffect(() => {
+    fetchMovies();
+  }, []);
   return (
-    <Container className="d-flex justify-content-center">
-      <Row>
-        <Col>
-          <h4>Movie:</h4>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <img src={item} alt="..."></img>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <div className="main">
+        <div className="text-center">
+          <img src={MovieDetails.Poster} />
+          <h3>{MovieDetails.Title}</h3>
+          <p>{MovieDetails.Plot}</p>
+        </div>
+      </div>
+    </>
   );
 };
 
