@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import MyNavbar from "./components/MyNavbar";
+import MyTitle from "./components/MyTitle";
+import MyFooter from "./components/MyFooter";
+import SingleCarousel from "./components/SingleCarousel";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TvShows from "./components/TvShows";
+import CarouselList from "./components/CarouselList";
+import MovieDetails from "./components/MovieDetails";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div
+        style={{
+          backgroundColor: "#000",
+          color: "white",
+          height: "100vh",
+        }}
+      >
+        <MyNavbar />
+        <MyTitle />
+
+        <Routes>
+          <Route element={<CarouselList />} path="/" />
+          <Route element={<TvShows />} path="/tvshows" />
+          <Route element={<MovieDetails />} path="/details/:movieId" />
+        </Routes>
+        <MyFooter />
+      </div>
+    </BrowserRouter>
   );
 }
 
