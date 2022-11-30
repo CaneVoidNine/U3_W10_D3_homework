@@ -11,7 +11,7 @@ export default function MyTitle() {
       >
         <Nav className="d-flex start">
           <Nav.Item>
-            <Navbar.Brand href="#home">Tv Shows</Navbar.Brand>
+            <Navbar.Brand href="#home">Movies</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           </Nav.Item>
           <Nav.Item>

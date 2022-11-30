@@ -61,7 +61,7 @@ export default class SingleCarousel extends Component {
 
   render() {
     return (
-      <div className="movie-gallery m-2">
+      <div className="movie-gallery m-2 mt-5">
         <h5 className="text-light mt-2 mb-2">{this.props.search}</h5>
 
         {this.state.isLoading && <Spinner></Spinner>}
@@ -69,7 +69,7 @@ export default class SingleCarousel extends Component {
         {this.state.isError && <Error></Error>}
 
         {!this.state.isLoading && !this.state.isError && (
-          <Carousel>
+          <Carousel interval={999999}>
             {this.state.movies.map((movies) => (
               <Carousel.Item>
                 <div className="movie-row">

@@ -5,8 +5,8 @@ export default function CarouselList() {
   return (
     <div>
       <SingleCarousel search="Action" />
-      <SingleCarousel search="Anime" />
       <SingleCarousel search="Horror" />
+      <SingleCarousel search="Anime" />
     </div>
   );
 }

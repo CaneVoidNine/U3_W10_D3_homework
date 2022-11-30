@@ -2,9 +2,15 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SingleCarousel from "./SingleCarousel";
-const TvShows = () => {
-  <Container fluid>
-    <SingleCarousel search="Game of Thrones" />
-  </Container>;
-};
-export default TvShows;
+
+export default function TvShows() {
+  return (
+    <div>
+      <Container fluid>
+        <SingleCarousel search="Game of Thrones" />
+        <SingleCarousel search="Friends" />
+        <SingleCarousel search="Breaking Bad" />
+      </Container>
+    </div>
+  );
+}
